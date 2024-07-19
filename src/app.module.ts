@@ -6,9 +6,9 @@ import { JokesModule } from 'jokes/jokes.modules';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(
-      'mongodb+srv://praveenk:Z4uq2BwMcoJWDZ3k@jokesapp.khokyn1.mongodb.net/?retryWrites=true&w=majority&appName=JokesApp',
-    ),
+    MongooseModule.forRoot(process.env.MONGODB_URI, {
+      serverSelectionTimeoutMS: 10000, // Increase timeout as needed
+    }),
     JokesModule,
   ],
   controllers: [AppController],
