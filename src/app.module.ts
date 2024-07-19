@@ -12,7 +12,7 @@ import { ConfigModule } from '@nestjs/config';
       envFilePath: '.env',
     }),
     MongooseModule.forRoot(process.env.MONGODB_URI, {
-      serverSelectionTimeoutMS: 10000, // Increase timeout as needed
+      serverSelectionTimeoutMS: 10000,
     }),
     JokesModule,
   ],
