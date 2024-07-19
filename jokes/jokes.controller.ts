@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import { JokesService } from './jokes.service';
 import { Joke } from './schemas/joke.schema';
+import { Type } from './schemas/type.schema';
 
 @Controller('jokes')
 export class JokesController {
@@ -19,6 +20,11 @@ export class JokesController {
     return this.jokesService.submitJoke(joke);
   }
 
+  @Post('add-type')
+  async addType(@Body() type: Type) {
+    return this.jokesService.addType(type);
+  }
+
   @Get('types')
   async getJokeTypes() {
     return this.jokesService.getJokeTypes();
@@ -26,7 +32,6 @@ export class JokesController {
 
   @Get()
   async getAllJokes() {
-    console.log("I'm called");
     return this.jokesService.getAllJokes();
   }
 
